@@ -50,5 +50,11 @@ RSpec.describe StringCalculator do
 			it { expect(StringCalculator.add("2,1001")).to eq(2) }
 			it { expect(StringCalculator.add("1002,2")).to eq(2) }
 		end
+
+		context "given '//[*]\n1**2**3'" do
+			it "returns 6" do
+				expect(StringCalculator.add("//[*]\n1**2**3")).to eq(6)
+			end
+		end
   end
 end
