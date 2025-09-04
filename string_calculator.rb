@@ -1,13 +1,20 @@
 # string_calculator.rb
 class StringCalculator
-  class << self
+	@add_count = 0
 
+  class << self
 		def add(numbers)
+			@add_count += 1
 			return 0 if numbers.empty?
 			  nums = extract_numbers(numbers)
 				validate_no_negatives(nums)
 				sum_ignoring_large(nums)
 		end
+
+		def get_called_count
+			@add_count
+		end
+
 		private
 
 		# Step 1: Split numbers based on delimiters
