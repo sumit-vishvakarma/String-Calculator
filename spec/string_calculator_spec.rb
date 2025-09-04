@@ -20,5 +20,11 @@ RSpec.describe StringCalculator do
 				expect(StringCalculator.add("1,5")).to eq(6) 
 			end 
 		end
+
+		context "given '1,5,3,1' " do
+			it "returns 10" do
+				expect(StringCalculator.add("1,5,3,1")).to eq(10) 
+			end 
+		end
   end
 end
