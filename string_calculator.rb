@@ -15,7 +15,7 @@ class StringCalculator
         end
 
       check_negatives(nums)
-      nums.sum
+      nums.reject{|n| n > 1000}.sum
 		end
 		private
 
