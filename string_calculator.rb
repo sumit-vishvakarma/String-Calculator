@@ -10,11 +10,14 @@ class StringCalculator
           delimiter, numbers = numbers.split("\n", 2)
           delimiter = delimiter[2..-1]
 
-					if delimiter.start_with?("[") && delimiter.end_with?("]")
-						delimiter = delimiter.gsub(/\[|\]/, '')
+					if delimiter.start_with?("[")
+						delimiters = delimiter.scan(/\[(.*?)\]/).flatten
+            regex = Regexp.union(delimiters)
+            numbers.split(regex).map(&:to_i)
+					else
+						numbers.split(delimiter).map(&:to_i)
 					end
-					
-          numbers.split(delimiter).map(&:to_i)
+
         else
           numbers.split(/,|\n/).map(&:to_i)
         end
