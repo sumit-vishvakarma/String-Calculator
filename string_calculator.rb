@@ -20,8 +20,9 @@ class StringCalculator
 		private
 
     def check_negatives(nums)
-     # implemented soon..
-		end
+      negatives = nums.select { |n| n < 0 }
+      raise "negatives not allowed: #{negatives.join(', ')}" unless negatives.empty?
+    end
 	end	
 end
 
