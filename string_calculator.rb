@@ -9,6 +9,11 @@ class StringCalculator
         if numbers.start_with?("//")
           delimiter, numbers = numbers.split("\n", 2)
           delimiter = delimiter[2..-1]
+
+					if delimiter.start_with?("[") && delimiter.end_with?("]")
+						delimiter = delimiter.gsub(/\[|\]/, '')
+					end
+					
           numbers.split(delimiter).map(&:to_i)
         else
           numbers.split(/,|\n/).map(&:to_i)
